@@ -1,7 +1,10 @@
+"""Read a single sector of a physical disk. Tested on Mac OS 10.13.3 and Windows 8."""
+
 import os
 
 
 def main():  # Read the first sector of the first disk as example.
+    """Demo usage of function."""
     if os.name == "nt":
         # Windows based OS normally uses '\\.\physicaldriveX' for disk drive identification.
         print(read_sector(r"\\.\physicaldrive0"))
