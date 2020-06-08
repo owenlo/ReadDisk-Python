@@ -20,9 +20,12 @@ def read_sector(disk, sector_no=0):
     disk -- the physical ID of the disk to read.
     sector_no -- the sector number to read (default: 0).
     """
-    f = open(disk, 'rb')
-    f.seek(sector_no * 512)
-    read = f.read(512)
+    # Static typed variable
+    read = None
+    # File operations with `with` syntax. To reduce file handeling efforts.
+    with open(disk, 'rb') as fp:
+        fp.seek(sector_no * 512)
+        read = fp.read(512)
     return read
 
 
